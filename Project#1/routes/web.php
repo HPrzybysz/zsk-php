@@ -28,4 +28,40 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/city_old', function(){
+    return "Miasto";
+});
+
+Route::get('/city', function(){
+    return view('city');
+});
+
+Route::redirect('/', 'city_old');
+Route::redirect('/', '/city', 301);
+Route::get('/status', function(){
+    $response = Response::json([
+        'error' => false,
+        'code' => 300,
+        'message' => 'Image was deleted!'], 500);
+    return $response->status();
+});
+
+Route::get('city2', function(){
+    //     ["name" => "Janusz", "city" => "Poznan"];
+    return view('city', ['name' => "Janusz", "city" => "Poznan"]);
+});
+Route::get('/pages/{x}', function($x){
+    //return ['name' => 'dfgr'];
+    return $x;
+});
+Route::get('pages/{x}', function($x){
+    $info = [
+        'about' => "Informacje o stronie",
+        'contact' => "contact@o2.pl",
+        'home' => 'Strona domowa'
+    ];
+    return $info[$x];
+});
+
 require __DIR__.'/auth.php';
+
