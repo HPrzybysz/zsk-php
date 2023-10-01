@@ -88,7 +88,7 @@ Route::get('/address2/{city?}/{street?}/{ZipCode?}', function(string $city = "-"
     ADDRESS;
 })->name(name:'x');
 
-Route::redirect('stronaglowna', '/');
+Route::redirect('stronaglowna', 'city2');
 Route::redirect('xyz', 'stronaglowna');
 
 Route::redirect('danemiasta/{city?}/{street?}/{ZipCode?}', 'address2/{city?}/{street?}/{ZipCode?}');
