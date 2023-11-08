@@ -8,9 +8,17 @@
     <title>Document</title>
 </head>
 <body>
+@if($errors->any())
+    <ul>
+        @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach
+    </ul>
+@endif
     <form action="UserFormController" method="get">
-        <input type="text" name="firstName" placeholder="Podaj imię" autofocus><br><br>
-        <input type="text" name="lastName" placeholder="Podaj nazwisko"><br><br>
+        <input type="text" name="firstName" placeholder="Podaj imię" autofocus value="{{old('firstName')}}"><br><br>
+        <input type="text" name="lastName" placeholder="Podaj nazwisko" value="{{old('lastName')}}"><br><br>
+        <input type="email" name="mail" placeholder="email" value="{{old('mail')}}"><br><br>
         <input type="submit" value="Zatwierdź dane">
     </form>
 </body>
