@@ -33,3 +33,5 @@ Route::view('user_form', 'forms.user_form');
 
 Route::get('UserFormController', [\App\Http\Controllers\UserFormController::class, 'showUser']);
 
+Route::get('db', [\App\Http\Controllers\ShowDbController::class,'ShowTableUsers']);
+
