@@ -35,3 +35,4 @@ Route::get('UserFormController', [\App\Http\Controllers\UserFormController::clas
 
 Route::get('db', [\App\Http\Controllers\ShowDbController::class,'ShowTableUsers']);
 
+Route::resource('product', \App\Http\Controllers\ProductController::class);
